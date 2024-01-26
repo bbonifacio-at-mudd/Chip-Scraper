@@ -3,9 +3,8 @@ from bs4 import BeautifulSoup
 from subScraper import subScraper
 
 class mainScraper():
-    def __init__(self, main_url, directory):
+    def __init__(self, main_url):
         self.main_url = main_url
-        self.directory = directory
         self.subpage_urls = []
 
     def fetch_subpage_urls(self):
@@ -23,17 +22,19 @@ class mainScraper():
 
     def run(self):
         # Fetch all subpage URLs
+        print("fetching subpage urls")
         self.fetch_subpage_urls()
+        print("urls fetched")
 
         # Process each subpage
-        for url in self.subpage_urls:
+        for index, url in enumerate(self.subpage_urls):
             print(f"Processing {url}")
-            sub_scraper = subScraper(url, self.directory)
+            sub_scraper = subScraper(url, f"Data/Chips/{index}")
             sub_scraper.run()
-            raise Exception("Stop here")
+            if index == 5:
+                raise Exception("Stop here")
 
 if __name__ == '__main__':
     main_url = "http://chipguide.themogh.org/cg_state2.php?id=nv"
-    directory = "Data/Chips"
-    main_scraper = mainScraper(main_url, directory)
+    main_scraper = mainScraper(main_url)
     main_scraper.run()
