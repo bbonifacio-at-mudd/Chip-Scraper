@@ -6,8 +6,7 @@
 
 TODO:
 
-- DONT GET IP BANNED
-- Make primary script, calls to subScraper. 
+- DONT GET IP BANNED, add timer
 - Update subScraper so that non-chip images aren't saved
 - Clean up file storage, Ask Sam/George how files should be stores
 - Clean up metadata storage
