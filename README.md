@@ -1,4 +1,4 @@
-# Chip-Scraper
+# Chip-Scraper: Currently have ~4,400 Chips Total
  Code for scraping the chip dataset for Active Insights. 
 
 
