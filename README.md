@@ -6,7 +6,7 @@
 
 TODO:
 
-- DONT GET IP BANNED, add timer
-- Update subScraper so that non-chip images aren't saved
+- DONT GET IP BANNED 
 - Clean up file storage, Ask Sam/George how files should be stores
 - Clean up metadata storage
+- 
