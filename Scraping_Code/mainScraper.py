@@ -32,8 +32,6 @@ class mainScraper():
             sub_scraper.run()
             raise Exception("Stop here")
 
-# SubpageScraper class remains the same as before
-
 if __name__ == '__main__':
     main_url = "http://chipguide.themogh.org/cg_state2.php?id=nv"
     directory = "Data/Chips"
