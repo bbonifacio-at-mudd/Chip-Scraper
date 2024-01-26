@@ -31,8 +31,6 @@ class mainScraper():
             print(f"Processing {url}")
             sub_scraper = subScraper(url, f"Data/Chips/{index}")
             sub_scraper.run()
-            if index == 5:
-                raise Exception("Stop here")
 
 if __name__ == '__main__':
     main_url = "http://chipguide.themogh.org/cg_state2.php?id=nv"
