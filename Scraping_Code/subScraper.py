@@ -33,7 +33,7 @@ class subScraper():
 
                 # Add to results
                 self.results.append({
-                    'image_urls': self.image_urls,
+                    'image_urls': image_urls,
                     'chip_info': chip_info
                 })
 
@@ -41,7 +41,11 @@ class subScraper():
             print(f"Failed to fetch page. Status code: {response.status_code}")
 
     def to_csv(self):
-        with open(os.path.join(self.directory, 'chipInfo.csv'), 'w', newline='') as csv_file:
+        # Make directory if it doesn't exist
+        if not os.path.exists(self.directory):
+            os.makedirs(self.directory)
+
+        with open(os.path.join(self.directory, 'chipInfo.csv'), 'w+', newline='') as csv_file:
             fieldnames = ['image_urls', 'chip_info']
             writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
             writer.writeheader()
@@ -55,12 +59,13 @@ class subScraper():
             os.makedirs(folder_name)
 
         # Parse through image urls and downlad them
-        for img_url in self.results.image_urls:
-            response = requests.get(img_url)
-            if response.status_code == 200:
-                file_path = os.path.join(folder_name, img_url.split('/')[-1])
-                with open(file_path, 'wb') as file:
-                    file.write(response.content)
+        for result in self.results:
+            for img_url in result['image_urls']:
+                response = requests.get(img_url)
+                if response.status_code == 200:
+                    file_path = os.path.join(folder_name, img_url.split('/')[-1])
+                    with open(file_path, 'wb') as file:
+                        file.write(response.content)
 
     def run(self):
         # Step 1: Get the info from the main page
