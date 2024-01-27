@@ -1,1 +1,1 @@
-See this repo for cropped chips: https://github.com/bbonifacio-at-mudd/Chip-Scraper/tree/main
+See this repo for cropped chips: https://github.com/bbonifacio-at-mudd/Dataset-Creation/tree/main
