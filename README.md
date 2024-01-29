@@ -13,7 +13,4 @@ By only saving "Table Chips", which excludes slot tokens, pieces of paper, etc, 
 
 TODO:
 
-- DONT GET IP BANNED 
-- Clean up file storage, Ask Sam/George how files should be stores
-- Clean up metadata storage
-- 
+- implement feedback
